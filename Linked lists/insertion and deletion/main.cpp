@@ -98,8 +98,51 @@ void delete_node(node *&p,int index)
     }
 }
 
+
+//Checking if the LL is sorted 
+bool issorted(node *p)
+{
+    int x=p->data;
+    p=p->next;
+    while(p!=NULL)
+    {
+        if(x>p->data)
+        return false;
+        
+        x=p->data;
+        p=p->next;
+    }
+
+    return true;
+}
+
+//deleting duplicates in a sorted LL
+void delete_duplicates(node *&p)
+{
+    node *first=p,*last=0,*q=p;
+    p=p->next;
+
+    while(p!=0)
+    {
+        if(p->data==q->data)
+        {
+            q->next=p->next;
+            delete p;
+            p=q->next;
+        }
+        
+        else
+        {
+            q=p;
+            p=p->next;
+        }
+    }
+
+    p=first;
+}
 int main()
 {
+    cout<<"Insertion and deletion"<<endl;
     int a[5]={1,6,2,4,0};
     node *p=create(a,5);
     disp(p);
@@ -109,4 +152,18 @@ int main()
     disp(p);
     delete_node(p,6);
     disp(p);
+
+
+    cout<<"Is sorted"<<endl;
+    int b[4]={1,-4,7,8};
+    node *q=create(b,4);
+    issorted(q)==1?cout<<"sorted"<<endl:cout<<"not sorted"<<endl;
+    
+    cout<<"deleting duplicates"<<endl;
+    int c[9]={1,1,2,4,4,6,6,6,6};
+    node *r=create(c,9);
+    disp(r);
+    delete_duplicates(r);
+    disp(r);
+
 }
