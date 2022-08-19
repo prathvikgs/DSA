@@ -11,7 +11,7 @@ void disp(int a[],int n)
     cout<<endl;
 }
 
-//Merging 2 sorted arrays into a single array
+//Merging left half to the right half
 void merge(int a[],int l,int m,int h)
 {
     int i=l,j=m+1,k=0,b[h-l+1];
