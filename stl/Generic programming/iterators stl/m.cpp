@@ -16,15 +16,18 @@ int main()
         cout<<*it<<" ";
     }
     cout<<endl;
-
+    
+    //advance()
     it=a.begin();
     advance(it,4);//advances the iterator by 1 position
     cout<<*it<<endl;
-
+    
+    //next()
     it=a.begin();
     auto it1=next(it,3);
     cout<<*it1<<endl;
     
+    //prev()
     it=a.end();
     auto it2=prev(it,3);
     cout<<*it2<<endl;
@@ -33,7 +36,8 @@ int main()
 
     vector<int> ar={1,2,4,5},ar1={-1,4,3,9};
     vector<int>::iterator ptr=ar.begin();
-
+     
+    //inserter()
     advance(ptr,2);
     copy(ar1.begin(),ar1.end(),inserter(ar,ptr));
     it=ar.begin();
